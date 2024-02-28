@@ -5,21 +5,22 @@ using UnityEngine;
 namespace PlayableCharacter
 {
 
-    public class Character
+    public abstract class Character
     {
         private string name;
-        private int life = 1;
-        public int Life { get => life; set => life = value; }
+        private int healthPoints = 10;
+        public int HealthPoints { get => healthPoints; set => healthPoints = value; }
 
-        public Character(string nombre)
+        public Character(string name)
         {
             this.name = name;
-            Debug.Log("Hola, soy " + name);
+            Debug.Log(name + "ha muerto");
         }
         ~Character()
         {
             Debug.Log("Destroyed");
         }
+        public abstract void TakeDamage();
     }
 
 }
